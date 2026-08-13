@@ -1,3 +1,25 @@
+/*
+    Selection Sort
+
+    Idea:
+    Find the smallest element from the unsorted
+    portion and place it at the beginning.
+
+    Time Complexity:
+    Best:    O(n²)
+    Average: O(n²)
+    Worst:   O(n²)
+
+    Space Complexity:
+    O(1)
+
+    In-place:
+    Yes
+
+    Stable:
+    No
+*/
+
 #include <iostream>
 int main()
 {
