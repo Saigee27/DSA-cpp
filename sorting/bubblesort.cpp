@@ -6,7 +6,7 @@ Compare adjacent elements and swap them
 if they are in the wrong order.
 
 Time Complexity:
-Best:    O(n)*
+Best:    O(n²)
 Average: O(n²)
 Worst:   O(n²)
 
@@ -18,12 +18,6 @@ Yes
 
 Stable:
 Yes
-*/
-
-/*
-* Best case O(n) applies when the algorithm
-  uses an optimization to detect no swaps.
-  Without that optimization, best case is O(n²).
 */
 
 #include <iostream>
