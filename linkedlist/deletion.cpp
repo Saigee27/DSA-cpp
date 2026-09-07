@@ -25,7 +25,8 @@ int main()
     Node* temp = first;
     first=first->next;
     delete temp;
-
+    current=first;
+    
 
     // Removing middle value from the Node (30)
     Node* middle = first->next;
@@ -43,7 +44,7 @@ int main()
     delete temp;
 
 
-    // Printing the actual result after deletion from beginning, middle and in the end.
+    // Printing the actual result after deletion from beginning, middle and in the end (20)
     current=first;
     while (current != nullptr)
     {
