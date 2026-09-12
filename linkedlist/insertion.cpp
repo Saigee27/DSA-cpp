@@ -6,18 +6,43 @@ struct Node
     Node* next;
 };
 
+ Node* Creation(Node* first, Node* temp)
+{
+    int n;
+    std::cout<<"Enter the number of Nodes: ";
+    std::cin>>n;
+
+    first = new Node;
+    first->next=nullptr;
+
+    std::cout<<"Enter the Value of Node 1 : ";
+    std::cin>>first->data;
+
+    temp = first;
+
+    for(int i=2; i<=n; i++)
+    {
+        temp->next = new Node;
+        temp=temp->next;
+
+        std::cout<<"Enter the value of Node "<<i<<" : ";
+        std::cin>>temp->data;
+
+        temp->next=nullptr;
+    }
+    return first;
+}
+
 int main()
 {
     // Original list: 10 -> 20
-    Node* first = new Node;
-    Node* second = new Node;
+    Node* first = nullptr;
+    Node* temp = nullptr;
+    Node* current = first;
 
-    first->data = 10;
-    first->next = second;
+    first = Creation(first,temp);
 
-    second->data = 20;
-    second->next = nullptr;
-
+    
 
     // 1. Insertion at beginning
     Node* beginningNode = new Node;
@@ -39,7 +64,7 @@ int main()
     Node* tailNode = new Node;
     tailNode->data = 30;
 
-    Node* current = first;
+    current = first;
 
     while(current->next != nullptr)
     {
