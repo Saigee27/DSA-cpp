@@ -5,26 +5,46 @@ struct Node
     Node* next;
 };
 
+Node* Creation(Node* first, Node* temp)
+{
+    int n;
+    std::cout<<"Enter the number of Nodes: ";
+    std::cin>>n;
+
+    first = new Node;
+    first->next=nullptr;
+
+    std::cout<<"Enter the Value of Node 1 : ";
+    std::cin>>first->data;
+
+    temp = first;
+
+    for(int i=2; i<=n; i++)
+    {
+        temp->next = new Node;
+        temp=temp->next;
+
+        std::cout<<"Enter the value of Node "<<i<<" : ";
+        std::cin>>temp->data;
+
+        temp->next=nullptr;
+    }
+    return first;
+}
+
 int main()
 {
-    Node* first = new Node;
-    Node* second = new Node;
-    Node* third = new Node;
-    Node* fourth = new Node;
-    first->data=10;
-    first->next=second;
-    second->data=20;
-    second->next=third;
-    third->data=30;
-    third->next=fourth;
-    fourth->data=40;
-    fourth->next=nullptr;
+    Node* first = nullptr;
+    Node* temp = nullptr;
     Node* current = first;
 
+    // Enter 5 Nodes (10-50)
+    first = Creation(first,temp);
+
     // Removing beginning value from the Node (10)
-    Node* temp = first;
+    Node* tempp = first;
     first=first->next;
-    delete temp;
+    delete tempp;
     current=first;
     
 
@@ -39,9 +59,9 @@ int main()
     {
         current=current->next;
     }
-    temp=current->next;
+    tempp=current->next;
     current->next=nullptr;
-    delete temp;
+    delete tempp;
 
 
     // Printing the actual result after deletion from beginning, middle and in the end (20)
