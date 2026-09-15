@@ -6,6 +6,22 @@ struct Node
     Node* next;
 };
 
+Node* insertStart(Node* first)
+{
+    Node* temp = new Node;
+    cout<<"Enter the value to be inserted in the start: ";
+    cin>>temp->data;
+    Node* current = first;
+    while (current->next != first)
+    {
+        current = current->next;
+    }
+    temp->next=first;
+    current->next=temp;
+    first=temp;
+    return first;
+}
+
 Node* Creation(Node* first)
 {
     int n;
@@ -16,7 +32,6 @@ Node* Creation(Node* first)
 
     cout<<"Enter the value of Node 1: ";
     cin>>first->data;
-
     Node* temp = first;
     for(int i=2; i<=n; i++)
     {
@@ -24,8 +39,48 @@ Node* Creation(Node* first)
         temp=temp->next;
         cout<<"Enter the value of Node "<<i<<": ";
         cin>>temp->data;
-        temp->next=nullptr;
+        temp->next=first;
     }
+    return first;
+}
+
+Node* insertEnd(Node* first)
+{
+    Node* temp = new Node;
+    cout<<"Enter the value to insert in the end: ";
+    cin>>temp->data;
+    Node* current = first;
+    while (current->next != first)
+    {
+        current = current->next;
+    }
+    temp->next=first;
+    current->next=temp;
+    return first;
+}
+
+
+Node* insertMiddle(Node* first)
+{
+    Node* p = new Node;
+
+    cout << "Enter the value to insert: ";
+    cin >> p->data;
+
+    int n;
+    cout << "Enter the value you want to insert after: ";
+    cin >> n;
+
+    Node* current = first;
+
+    while(current->data != n)
+    {
+        current = current->next;
+    }
+
+    p->next = current->next;
+    current->next = p;
+
     return first;
 }
 
@@ -36,6 +91,9 @@ int main()
     Node* current = first;
 
     first = Creation(first);
+    first = insertStart(first);
+    first = insertEnd(first);
+    first = insertMiddle(first);
 
     cout<<"\n";
 
