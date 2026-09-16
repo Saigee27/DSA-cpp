@@ -84,6 +84,59 @@ Node* insertMiddle(Node* first)
     return first;
 }
 
+
+Node* deletionStart(Node* first)
+{
+    Node* current = first;
+
+    while(current->next != first)
+    {
+        current = current->next;
+    }
+
+    first = first->next;
+    delete current->next;
+    current->next = first;
+
+    return first;
+}
+
+Node* deletionEnd(Node* first)
+{
+    Node* current = first;
+
+    while(current->next->next != first)
+    {
+        current = current->next;
+    }
+
+    delete current->next;
+    current->next = first;
+
+    return first;
+}
+
+Node* deletionMiddle(Node* first)
+{
+    Node* current = first;
+
+    int n;
+    cout << "Enter the value to be deleted: ";
+    cin >> n;
+
+    while(current->next->data != n)
+    {
+        current = current->next;
+    }
+
+    Node* p = current->next;
+    current->next = p->next;
+    delete p;
+
+    return first;
+}
+
+
 int main()
 {
     Node* first = nullptr;
@@ -96,6 +149,19 @@ int main()
     first = insertMiddle(first);
 
     cout<<"\n";
+
+    current = first;
+    do {
+        cout<<current->data<<" ";
+        current=current->next;
+    }while(current != first);
+    
+
+    cout<<"\n";
+
+    first = deletionStart(first);
+    first = deletionEnd(first);
+    first = deletionMiddle(first);
 
     current = first;
     do {
