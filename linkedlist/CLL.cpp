@@ -137,6 +137,42 @@ Node* deletionMiddle(Node* first)
 }
 
 
+Node* searching(Node* first)
+{
+    int target = 0;
+    cout<<"Enter the value to search in linked list: ";
+    cin>>target;
+
+    bool found = false;
+    int position = 1;
+
+    Node* current = first;
+    
+    do
+    {
+        if(current->data == target)
+        {
+            cout << "The target value " << target
+                 << " is found at " << position;
+
+            found = true;
+            break;
+        }
+
+        current = current->next;
+        position++;
+
+    } while(current != first);
+
+    if(!found)
+    {
+        cout << "Target is not found";
+    }
+
+    return first;
+}
+
+
 int main()
 {
     Node* first = nullptr;
@@ -147,6 +183,7 @@ int main()
     first = insertStart(first);
     first = insertEnd(first);
     first = insertMiddle(first);
+    first = searching(first);
 
     cout<<"\n";
 
