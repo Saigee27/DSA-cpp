@@ -199,7 +199,7 @@ int main()
     first = deletionStart(first);
     first = deletionEnd(first);
     first = deletionMiddle(first);
-
+    first = searching(first);
     current = first;
     do {
         cout<<current->data<<" ";
