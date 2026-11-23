@@ -1,41 +1,62 @@
+
 /*
-    Selection Sort
+Selection Sort
 
-    Idea:
-    Find the smallest element from the unsorted
-    portion and place it at the beginning.
+Idea:
+Find the smallest element from the unsorted
+portion and place it at the beginning.
 
-    Time Complexity:
-    Best:    O(n²)
-    Average: O(n²)
-    Worst:   O(n²)
+Time Complexity:
+Best:    O(n²)
+Average: O(n²)
+Worst:   O(n²)
 
-    Space Complexity:
-    O(1)
+Space Complexity:
+O(1)
 
-    In-place:
-    Yes
+In-place:
+Yes
 
-    Stable:
-    No
+Stable:
+No
 */
 
 #include <iostream>
+using namespace std;
+
 int main()
 {
-    int arr[10]= {6, 2, 9, 1, 5, 11, 10, 3, 15, 13};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    int smallestind=0;
+    int n;
 
-    for (int i=0; i<n-1; i++)
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    if (n <= 0)
     {
-        smallestind=i;
-        for(int j=i+1; j<n; j++)
+        cout << "Invalid array size!";
+        return 0;
+    }
+
+    int arr[n];
+
+    cout << "Enter " << n << " elements: ";
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    int smallestind = 0;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        smallestind = i;
+
+        for (int j = i + 1; j < n; j++)
         {
-            
-            if (arr[j]<arr[smallestind])
+            if (arr[j] < arr[smallestind])
             {
-                smallestind=j;
+                smallestind = j;
             }
         }
 
@@ -47,9 +68,12 @@ int main()
         }
     }
 
-    for (int i=0; i<n; i++)
-{
-    std::cout<<arr[i]<<" ";
-}
-}
+    cout << "Sorted array: ";
 
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    return 0;
+}
